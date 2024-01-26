@@ -1,5 +1,5 @@
 # Question And Answer from SQL Database
-Query from DB with help of LLM(GooglePalm) in Simple English query</br>
+Query from DB with help of LLM(GooglePalm) in Simple English language</br>
 
 ### Steps for running code
 - Create virtual env
