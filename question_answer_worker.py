@@ -9,7 +9,7 @@ from langchain.vectorstores import Chroma
 
 def palm_llm():
     ##### Google LLM api key and connection #####
-    api_key = 'AIzaSyBOEXRoZeBsnwnKM8TmbdMHjTaEpHpeAbY'
+    api_key = ''
     llm = GooglePalm(google_api_key=api_key, temperature=0.2)
     return llm
 
