@@ -1,5 +1,4 @@
 # Created by trilo at 19-01-2024
-
 from langchain.utilities import SQLDatabase
 from langchain_experimental.sql import SQLDatabaseChain
 

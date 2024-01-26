@@ -1,15 +1,8 @@
 # Created by trilo at 20-01-2024
-
 from langchain.prompts import FewShotPromptTemplate
 from langchain.chains.sql_database.prompt import PROMPT_SUFFIX, _mysql_prompt
 from langchain.prompts.prompt import PromptTemplate
 from langchain_experimental.sql import SQLDatabaseChain
-
-
-class prompt_storing:
-    def __init__(self, new_chain):
-        self.new_chain = new_chain
-
 
 def few_shot_learning(qns1, qns2, qns3, qns4, qns5):
     few_shots = [
@@ -41,7 +34,6 @@ def few_shot_learning(qns1, qns2, qns3, qns4, qns5):
     ]
     return few_shots
 
-
 def prompt():
     ### my sql based instruction prompt
     mysql_prompt = """You are a MySQL expert. Given an input question, first create a syntactically correct MySQL 
@@ -65,7 +57,6 @@ def prompt():
     """
     return mysql_prompt
 
-
 def few_shot_prompt(example_selector, mysql_prompt, db, llm):
     example_prompt = PromptTemplate(
         input_variables=["Question", "SQLQuery", "SQLResult", "Answer", ],
@@ -79,5 +70,4 @@ def few_shot_prompt(example_selector, mysql_prompt, db, llm):
         input_variables=["input", "table_info", "top_k"],  # These variables are used in the prefix and suffix
     )
     new_chain = SQLDatabaseChain.from_llm(llm, db, verbose=True, prompt=few_shot_prompt)
-    prompt_storing(new_chain)
     return new_chain
